@@ -1,5 +1,5 @@
 body{
-  background-color: #e1f1f6;
+  background-color: Chocolate;
   font-family: Helvetica, sans-serif;
   color: #222;
 }
@@ -67,7 +67,8 @@ body{
       .student-details h3{
         margin: 4px 0 2px 0;
         font-weight: bold;
-        color: #4ba6c3;
+        /*color: #4ba6c3;*/
+        color: red;
       }
 
       .student-details .email{
