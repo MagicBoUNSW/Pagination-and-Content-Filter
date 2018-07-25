@@ -22,7 +22,7 @@ $(document).ready(function() {
         }
         $(".pagination").html("<ul>" + Links + "</ul>");
         $(".pagination").on("click", "a", function(e) {
-            display($(e.target).data("page"), $studentFound);
+            display($(e.target).data("page"), $Totalstudents);
         });
 	}
 
