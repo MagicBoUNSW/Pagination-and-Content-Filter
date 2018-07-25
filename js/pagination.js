@@ -21,51 +21,19 @@ $(document).ready(function() {
 			Links += "</a>";
         }
         $(".pagination").html("<ul>" + Links + "</ul>");
-        $(".pagination").on("click", "a", function(event) {
-            event.preventDefault();
-            display($(event.target).data("page"), $studentFound);
-            window.scrollTo(0, 0);
+        $(".pagination").on("click", "a", function(e) {
+            display($(e.target).data("page"), $studentFound);
         });
 	}
 
 	function display(numPage, $studentFound) {
 		$s.hide();
-		var offset = (numPage -1) *numStudents;
-		$studentFound = $studentFound || $s;
-        $studentFound.slice(offset, offset + numStudents).show();
+		var offset = (numPage -1) * numStudents;
+        $s.slice(offset, offset + numStudents).show();
 
-        addLink(numPage, $studentFound);
+        addLink(numPage, $s);
 	}
-
-	var $searchField = $(".search-field");
-    $searchField.html(
-        '<input placeholder="Search Student" /> <button>Search</button>'
-    );
-    $searchField.on("click", "button", function() {
-        searchList();
-    });
-    $searchField.on("keyup", "input", function() {
-        searchList();
-    });
-
-	function searchList() {
-        var search = $("input", $searchField).val().toLowerCase();
-        var $studentFound = $s.filter(function() {
-            return $(".email", this).text().indexOf(search) >= 0;
-        });
-        if ($studentFound.length === 0) {
-            $(".no-students").text("No students match that query. Try again.");
-        } else {
-            $(".no-students").text("");
-        }
-        display(1, $studentFound);
-    }
 
     display(1);
 
-    $(".page-header").sticky({
-        topSpacing: 0,
-        getWidthFrom: ".sticky-wrapper",
-        responsiveWidth: true
-    });
 });
