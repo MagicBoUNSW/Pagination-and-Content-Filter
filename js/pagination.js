@@ -2,9 +2,9 @@ $(document).ready(function() {
 	var numStudents = 10;
 	var $s = $(".student-item");
 
-	function addLink(Page,$studentFound){
+	function addLink(Page,$Totalstudents){
 		var Links = ""
-		var numPages = Math.ceil($studentFound.length / numStudents);
+		var numPages = Math.ceil($Totalstudents.length / numStudents);
 		if (numPages === 1) {
             $(".pagination").html("");
             return;
@@ -26,7 +26,7 @@ $(document).ready(function() {
         });
 	}
 
-	function display(numPage, $studentFound) {
+	function display(numPage) {
 		$s.hide();
 		var offset = (numPage -1) * numStudents;
         $s.slice(offset, offset + numStudents).show();
